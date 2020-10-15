@@ -1,4 +1,6 @@
 #LinearRegression example 1 - 
+#y = mx + c -->
+# ----- y = y axis, x = x axis, m = sploe of the line, c = y inercept of the lone -----
 #code below
 import numpy as np
 import pandas as pd
