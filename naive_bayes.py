@@ -28,3 +28,35 @@ def predict_category(s,train=train,model=model):
 #print(predict_category('nasa'))
 
 
+#2nd problem using gaussianNB
+from sklearn.naive_bayes import GaussianNB
+
+
+
+weather=['Sunny','Sunny','Overcast','Rainy','Rainy','Rainy','Overcast','Sunny','Sunny',
+'Rainy','Sunny','Overcast','Overcast','Rainy']
+temp=['Hot','Hot','Hot','Mild','Cool','Cool','Cool','Mild','Cool','Mild','Mild','Mild','Hot','Mild']
+
+play=['No','No','Yes','Yes','Yes','No','Yes','No','Yes','Yes','Yes','Yes','Yes','No']
+
+
+from sklearn import preprocessing
+le = preprocessing.LabelEncoder()
+we = le.fit_transform(weather)
+print(we)
+tmp = le.fit_transform(temp)
+#print(tmp)
+ply = le.fit_transform(play)
+p = ply.reshape(1,-1)
+features = zip(we,tmp)
+print(' featutres :  ',features)
+f = features
+model = GaussianNB()
+model.fit(f,p)
+predicted = model.predict([[0,2]])
+print('predicted : ',predicted)
+
+
+
+
+
